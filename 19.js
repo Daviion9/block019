@@ -1,3 +1,8 @@
+
+const nameList = document.querySelectorAll('.names');
+const jobList = document.querySelectorAll('.jobs');
+const priceList = document.querySelectorAll('.price');
+
 const freelancers = [
     { name: "Dr. Slice", price: 50, occupation: "gardener" },
     { name: "Dr. Pressure", price: 120, occupation: "programmer" },
@@ -7,34 +12,39 @@ const freelancers = [
     { name: "Prof. Spark", price: 76, occupation: "programmer" },
     { name: "Dr. Wire", price: 91, occupation: "teacher" },
     { name: "Goose", price: 12, occupation: "driver" },
-  ];
-  console.log(freelancers);
+];
 
-  /*I want to create an array for each occupation */
-  Const = Teacher {
-    name: (Prof.Prism, Dr.Impulse, Dr.Wire),
-    Price: ($43,$53,$91)
-    
-    console.log(Teacher)
-  };
-  
-  Const = Programmer  {
-    name:(Prof.Spark, Dr.Pressure)
-    Price:($76,$120)
+// Names
+for (let i = 0; i < nameList.length && i < freelancers.length; i++) {
+    nameList[i].textContent = freelancers[i].name;
+}
 
-    console.log(Programmer)
-  };
+// Jobs
+for (let i = 0; i < jobList.length && i < freelancers.length; i++) {
+    jobList[i].textContent = freelancers[i].occupation;
+}
 
-  Const = Gardener {
-    name:(Dr.Slice)
-    Price:($50)
+// Prices
+for (let i = 0; i < priceList.length && i < freelancers.length; i++) {
+    priceList[i].textContent = `$${freelancers[i].price}`;
+}
 
-    console.log(Gardener)
-  };
 
-  Const = Driver {
-    name:Goose
-    price:($12)
-  };
-  
-  /* Then I want to calculate the average price within each of the arrays  */
+const random = generateRandomFreelancer();
+console.log(`${random.name} - ${random.occupation}`);
+
+function generateRandomFreelancer() {
+    const randomIndex = Math.floor(Math.random() * freelancers.length);
+    return freelancers[randomIndex];
+}
+
+function updateFreelancer() {
+    const freelancer = generateRandomFreelancer();
+    document.getElementById('freelancer-name').textContent = freelancer.name;
+    document.getElementById('freelancer-job').textContent = freelancer.occupation;
+    document.getElementById('freelancer-price').textContent = `$${freelancer.price}`;
+}
+
+updateFreelancer();
+
+document.getElementById('update-btn').addEventListener('click', updateFreelancer);
