@@ -1,6 +1,6 @@
 
-const nameList = document.querySelectorAll('.names');
-const jobList = document.querySelectorAll('.jobs');
+const nameList = document.querySelectorAll('.name');
+const jobList = document.querySelectorAll('.occupation');
 const priceList = document.querySelectorAll('.price');
 
 const freelancers = [
@@ -40,11 +40,13 @@ function generateRandomFreelancer() {
 
 function updateFreelancer() {
     const freelancer = generateRandomFreelancer();
-    document.getElementById('freelancer-name').textContent = freelancer.name;
-    document.getElementById('freelancer-job').textContent = freelancer.occupation;
-    document.getElementById('freelancer-price').textContent = `$${freelancer.price}`;
+    document.getElementById('names').textContent = freelancer.names;
+    document.getElementById('jobs').textContent = freelancer.jobs;
+    document.getElementById('price').textContent = `$${freelancer.price}`;
 }
 
 updateFreelancer();
 
 document.getElementById('update-btn').addEventListener('click', updateFreelancer);
+
+
